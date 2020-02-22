@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Pig.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[node name="World" type="Node"]
+
+[node name="Backround" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Piggy" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Piggy"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -4 )
+hframes = 3
+
+[node name="Collision" type="CollisionShape2D" parent="Piggy"]
+rotation = 1.5708
+shape = SubResource( 1 )
