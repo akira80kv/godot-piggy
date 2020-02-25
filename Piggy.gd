@@ -2,6 +2,8 @@ extends Area2D
 
 export(int) var SPEED = 50
 
+onready var AnimationPlayer = $Animationplayer
+
 func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		move(SPEED, 0, delta)
