@@ -33,3 +33,7 @@ func move(xspeed, yspeed, delta):
 		position.x += xspeed * delta
 		position.y += yspeed * delta
 		moving = true
+
+
+func _on_Piggy_area_entered(area):
+	area.queue_free()

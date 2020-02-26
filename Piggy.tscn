@@ -77,3 +77,4 @@ shape = SubResource( 2 )
 playback_speed = 0.5
 anims/Idle = SubResource( 3 )
 anims/Run = SubResource( 4 )
+[connection signal="area_entered" from="." to="." method="_on_Piggy_area_entered"]
