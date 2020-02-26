@@ -5,6 +5,7 @@ var moving = false
 
 onready var animationPlayer = $AnimationPlayer
 onready var sprite = $Sprite
+onready var particles2D = $Particles2D
 
 func _process(delta):
 	moving = false
@@ -20,8 +21,12 @@ func _process(delta):
 		move(0, -SPEED, delta)
 	if moving == true:
 		animationPlayer.play("Run")
+		particles2D.emitting = true
 	else:
 		animationPlayer.play("Idle")
+		particles2D.emitting = false
+		
+
 		
 	
 func move(xspeed, yspeed, delta):

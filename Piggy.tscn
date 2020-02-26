@@ -1,14 +1,25 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Piggy.gd" type="Script" id=1]
 [ext_resource path="res://Pig.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 11.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.968627, 0.145098, 0.027451, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 6.0
 height = 7.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=3]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -24,8 +35,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Run"
+[sub_resource type="Animation" id=4]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -47,6 +57,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 15
+local_coords = false
+process_material = SubResource( 1 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.0510445, 0 )
 texture = ExtResource( 2 )
@@ -56,9 +71,9 @@ frame = 1
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.5
-anims/Idle = SubResource( 2 )
-anims/Run = SubResource( 3 )
+anims/Idle = SubResource( 3 )
+anims/Run = SubResource( 4 )
